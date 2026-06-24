@@ -1,10 +1,11 @@
 # Bdfd-https-
-Complete free guide of bdfd $http functions with examples 
-# HTTP Functions
+Complete free guide of bdfd $http functions with examples # 🌐 HTTP Functions
 
-There are a few API supported functions in BDFD. These allow your bot to communicate with APIs such as bdfdapi.xyz.
+> Learn how to communicate with APIs using BDFD. These functions power AI bots, economy systems, transcripts, welcome cards, databases, and much more.
 
-# $httpPost[] (My Favourite)
+---
+
+## 🚀 `$httpPost[]`
 
 Sends data to an API.
 
@@ -17,11 +18,21 @@ $httpPost[https://bdfdapi.xyz/api/example;
 ]
 ```
 
-Everything inside `{ }` gets sent to the API.
+> 💡 Everything inside `{ }` is sent to the API.
+
+### Common Uses
+
+```diff
++ AI Chatbots
++ Economy Systems
++ Database Storage
++ Ticket Systems
++ User Data
+```
 
 ---
 
-# $httpGet[]
+## 📥 `$httpGet[]`
 
 Gets data from an API.
 
@@ -29,19 +40,27 @@ Gets data from an API.
 $httpGet[https://bdfdapi.xyz/api/quote]
 ```
 
-After making the request you can use:
+Get the response:
 
 ```bdfd
 $httpResult
 ```
 
-to see the response.
+### Common Uses
+
+```diff
++ Quotes
++ Search APIs
++ Weather APIs
++ User Profiles
++ Public Data
+```
 
 ---
 
-# $httpPut[]
+## ✏️ `$httpPut[]`
 
-Updates existing data on an API.
+Replaces or updates existing data.
 
 ```bdfd
 $httpPut[https://bdfdapi.xyz/api/user;
@@ -52,13 +71,15 @@ $httpPut[https://bdfdapi.xyz/api/user;
 ]
 ```
 
-Mostly used when you want to replace or update stored data.
+```yaml
+Used when updating entire records.
+```
 
 ---
 
-# $httpPatch[]
+## 🔧 `$httpPatch[]`
 
-Updates only specific parts of existing data.
+Updates only specific values.
 
 ```bdfd
 $httpPatch[https://bdfdapi.xyz/api/user;
@@ -68,11 +89,13 @@ $httpPatch[https://bdfdapi.xyz/api/user;
 ]
 ```
 
-Similar to `$httpPut[]`, but only changes the values you provide.
+```yaml
+Used when editing only a few fields.
+```
 
 ---
 
-# $httpDelete[]
+## 🗑️ `$httpDelete[]`
 
 Deletes data from an API.
 
@@ -80,13 +103,19 @@ Deletes data from an API.
 $httpDelete[https://bdfdapi.xyz/api/user]
 ```
 
-Useful when removing data from a database.
+### Common Uses
+
+```diff
+- Delete User Data
+- Remove Warnings
+- Delete Economy Accounts
+```
 
 ---
 
-# $httpAddHeader[]
+## 🔐 `$httpAddHeader[]`
 
-Adds extra information to a request.
+Adds extra information to requests.
 
 ```bdfd
 $httpAddHeader[Authorization;Bearer cenzo-secret-key]
@@ -98,13 +127,16 @@ Another common example:
 $httpAddHeader[Content-Type;application/json]
 ```
 
-Many APIs require headers for authentication.
+```ini
+[Required]
+Most private APIs require headers.
+```
 
 ---
 
-# $httpRemoveHeader[]
+## ❌ `$httpRemoveHeader[]`
 
-Removes a header that was added earlier.
+Removes a previously added header.
 
 ```bdfd
 $httpRemoveHeader[Authorization]
@@ -112,7 +144,7 @@ $httpRemoveHeader[Authorization]
 
 ---
 
-# $httpStatus
+## 📊 `$httpStatus`
 
 Returns the status code from the last request.
 
@@ -122,17 +154,24 @@ $httpGet[https://bdfdapi.xyz/api/quote]
 Status: $httpStatus
 ```
 
-Common status codes:
+### Common Status Codes
 
-```text
-200 = Success
-404 = Not Found
-500 = Server Error
+```diff
++ 200 = Success
++ 201 = Created
+
+! 400 = Bad Request
+! 401 = Unauthorized
+! 403 = Forbidden
+! 404 = Not Found
+
+- 429 = Rate Limited
+- 500 = Server Error
 ```
 
 ---
 
-# $httpResult
+## 📄 `$httpResult`
 
 Returns the full response from the last request.
 
@@ -142,11 +181,20 @@ $httpGet[https://bdfdapi.xyz/api/quote]
 $httpResult
 ```
 
+Example output:
+
+```json
+{
+  "quote":"Stay hungry, stay foolish.",
+  "author":"Steve Jobs"
+}
+```
+
 ---
 
-# $httpResult[]
+## 🎯 `$httpResult[]`
 
-Returns a specific value from a JSON response.
+Returns a specific value from JSON.
 
 Example response:
 
@@ -158,35 +206,71 @@ Example response:
 }
 ```
 
-Get the username:
+Get username:
 
 ```bdfd
 $httpResult[username]
 ```
 
-Get the website:
+Get website:
 
 ```bdfd
 $httpResult[website]
 ```
 
-Get the coins:
+Get coins:
 
 ```bdfd
 $httpResult[coins]
 ```
 
+```diff
++ Perfect when you only need one value.
+```
+
 ---
 
-# $httpGetHeader[]
+## 📨 `$httpGetHeader[]`
 
 Gets a header from the API response.
 
 ```bdfd
 $httpGet[https://bdfdapi.xyz/api/quote]
+
 $httpGetHeader[Content-Type]
 ```
+
 Example output:
-```text
+
+```http
 application/json
+```
+
+Common headers:
+
+```http
+Content-Type
+Cache-Control
+Server
+Date
+```
+
+---
+
+# 💎 Most Used Functions
+
+If you're new to APIs, learn these first:
+
+```bdfd
+$httpGet[]
+$httpPost[]
+$httpAddHeader[]
+$httpResult[]
+$httpStatus
+```
+
+```diff
++ Master these 5 functions
++ Use almost any API
++ Build AI, economy, transcripts, tickets, and more
 ```
