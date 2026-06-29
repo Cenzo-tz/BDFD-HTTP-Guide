@@ -2,7 +2,7 @@
 A beginner-friendly guide to the **$http** functions in BDFD.
 ---
 ## What this is about
-The `$http` functions let your bot send and receive data over the internet. The services it talks to are called **APIs** — think of them as websites designed for bots: instead of a page with text and images, they return raw data (usually JSON) that your bot can use directly.<br>
+The `$http` functions let your bot send and receive data over the internet. The services it talks to are called **APIs**, think of them as websites designed for bots: instead of a page with text and images, they return raw data (usually JSON) that your bot can use directly.<br>
 There are different types of requests for different jobs:
 - **GET**: read data from an API (`$httpGet[URL]`)
 - **POST**: send new data to an API (`$httpPost[URL;(Body)]`)
